@@ -1,132 +1,156 @@
-let userChoice;
+// Grab elements
+const menuIcon = document.getElementById("menuIcon");
+const sidebar = document.getElementById("sidebar");
+const links = document.querySelectorAll(".sidebar a");
+let isSidebarOpen = false;
+let productsInCart = [];
+let cartList = [];
 
-function rockSelect() {
-    let myElem = document.querySelector("#Rock");
-    myElem.classList.add("selectedRock");
-    let otherButton1 = document.querySelector("#Paper");
-    let otherButton2 = document.querySelector("#Scissors");
-    otherButton1.classList.remove("selectedPaper");
-    otherButton2.classList.remove("selectedScissors");
-    userChoice = "rock";
-}
-
-function paperSelect() {
-    let myElem = document.querySelector("#Paper");
-    myElem.classList.add("selectedPaper");
-    let otherButton1 = document.querySelector("#Rock");
-    let otherButton2 = document.querySelector("#Scissors");
-    otherButton1.classList.remove("selectedRock");
-    otherButton2.classList.remove("selectedScissors");
-    userChoice = "paper";
-}
-
-function scissorsSelect() {
-    let myElem = document.querySelector("#Scissors");
-    myElem.classList.add("selectedScissors");
-    let otherButton1 = document.querySelector("#Paper");
-    let otherButton2 = document.querySelector("#Rock");
-    otherButton1.classList.remove("selectedPaper");
-    otherButton2.classList.remove("selectedRock");
-    userChoice = "scissors";
-}
-
-let userName = "";
-
-function submitForm() {
-    userName = document.getElementById("fname").value;
-    console.log(userName);
-    return userName;
-}
-
-//code to make game run//
-
-let [computerScore, userScore] = [0, 0];
-let counter = 0;
-
-const getComputerChoice = () => {
-    const randomNumber = Math.floor(Math.random() * 3);
-    switch (randomNumber) {
-        case 0:
-            return "rock";
-        case 1:
-            return "paper";
-        case 2:
-            return "scissors";
-    }
-};
-
-const determineWinner = (userChoice, computerChoice) => {
-    let fLetter = userChoice.charAt(0).toUpperCase();
-    let lLetter = computerChoice.charAt(0).toUpperCase();
-    let url = `imgs/Vs/${fLetter}v${lLetter}.png`;
-    document.getElementById("chart").src = url;
-    if (userChoice === computerChoice) {
-        return "It's a draw!";
-    } else if (userChoice === "rock") {
-        if (computerChoice === "paper") {
-            computerScore++;
-            return "Handaconda attacked!";
+// Event listener to handle clicking the menu icon
+menuIcon.addEventListener("click", () => {
+    if (window.innerWidth <= 768) {
+        // Mobile: toggle the 'open' class
+        sidebar.classList.toggle("open");
+    } else {
+        // Desktop: use 'left' positioning to toggle visibility
+        if (isSidebarOpen) {
+            sidebar.style.left = "-200px";
         } else {
-            userScore++;
-            return "Mario attacked!";
-        }
-    } else if (userChoice === "paper") {
-        if (computerChoice === "scissors") {
-            computerScore++;
-            return "Handaconda attacked!";
-        } else {
-            userScore++;
-            return "Mario attacked!";
-        }
-    } else if (userChoice === "scissors") {
-        if (computerChoice === "rock") {
-            computerScore++;
-            return "Handaconda attacked!";
-        } else {
-            userScore++;
-            return "Mario attacked!";
+            sidebar.style.left = "0";
         }
     }
-};
 
-function playGame() {
-    if (counter <= 5) {
-        counter++;
-        if (userChoice) {
-            document.getElementById("Name").textContent = "";
-            const computerChoice = getComputerChoice();
-            console.log(`You chose: ${userChoice}.`);
-            console.log(`Computer chose: ${computerChoice}.`);
-            document.getElementById("centerText").classList.add("d-none");
-            let columns = document.querySelectorAll("#result .row .col-4");
-            let col12 = document.getElementById("col12");
-            columns[0].textContent = `Mario chose: ${userChoice}.`;
-            col12.textContent = `${determineWinner(userChoice, computerChoice)}`;
-            columns[2].textContent = `Handaconda chose: ${computerChoice}.`;
-            let scoreColumns = document.getElementsByClassName("scores");
-            scoreColumns[0].textContent = `Mario's attacked: ${userScore} times!`;
-            scoreColumns[1].textContent = `Handaconda's attacked: ${computerScore} times!`;
-        }
-    } else if (counter == 5) {
-        setTimeout(() => {
-            resetGame();
-        }, 500); // Delay to show lose message
-    } else if (userScore > computerScore) {
-        setTimeout(() => {
-            col12.textContent = `Congratulations! ${userName} beat Handacoda!`;
-            console.log(`Congratulations! ${userName} beat Handacoda!`);
-            document.getElementById("hand").src = "imgs/confetti.png";
-        }, 500); // Delay to show win message
-    } else if (computerScore > userScore) {
-        setTimeout(() => {
-            col12.textContent = `Oh no! Handaconda Won! Try again!`;
-            document.getElementById("mario").src = "imgs/Mario-Faint.png";
-        }, 500); // Delay to show lose message
-    } else if (userScore == computerScore) {
-        setTimeout(() => {
-            col12.textContent = `It's a draw! Try again!`;
-        }, 500); // Delay to show lose message
+    // Toggle the state
+    isSidebarOpen = !isSidebarOpen;
+});
+
+// Function to close the sidebar and navigate to a page
+function selectPage(event) {
+    event.preventDefault(); // Prevent the default link navigation to ensure the sidebar closes first
+    const targetUrl = event.target.getAttribute("href"); // Get the target URL from the clicked link
+
+    // Close the sidebar with a smooth transition
+    if (window.innerWidth <= 768) {
+        sidebar.classList.remove("open"); // Close the sidebar on mobile
+    } else {
+        sidebar.style.left = "-200px"; // Close the sidebar on desktop
     }
+
+    // Wait for the transition to complete before navigating
+    setTimeout(() => {
+        window.location.href = targetUrl; // Navigate to the new page after the sidebar closes
+    }, 500); // Delay matches the CSS transition time (0.5s)
 }
 
-//find out where to bput the disapearin thing below
+// Add event listeners to all sidebar links
+links.forEach((link) => {
+    link.addEventListener("click", selectPage);
+});
+
+// ---------------- GENERATE THE Reviews ---------------- //
+const customReviews = [
+    {
+        Rating: "5 Stars",
+        Name: "Gordon",
+        Review:
+            "How do I exit this page. I was just trying to order a pizza for my grandkiddos.",
+        Time: "12/31/19",
+    },
+    {
+        Rating: "5 Stars",
+        Name: "En Lamas",
+        Review: "I like wood",
+        Time: "4/25/20",
+    },
+];
+let render;
+document.addEventListener("DOMContentLoaded", () => {
+    const grid = document.getElementById("reviewList");
+
+    render = (list) => {
+        grid.innerHTML = "";
+
+        list.forEach((review) => {
+            const col = document.createElement("div");
+            col.className = "col-12";
+
+            col.innerHTML = `
+        <div class="card h-100 shadow-sm">
+          <div class="card-body text-center">
+            <h5 class="card-title mb-1">${review.Name}</h5>
+            <div class="badge bg-warning text-dark mb-2">${review.Rating}</div>
+            <p class="card-text small">${review.Review}</p>
+            <div class="text-muted small">${review.Time}</div>
+          </div>
+        </div>
+      `;
+
+            grid.appendChild(col);
+        });
+    };
+
+    render(customReviews);
+});
+
+function submitReview() {
+    let customerName = document.getElementById("textCommentName").value;
+    let starsAmount = document.getElementById("starSelection").value;
+    let customerComment = document.getElementById("commentArea").value;
+    customReviews.push({
+        Rating: starsAmount,
+        Name: customerName,
+        Review: customerComment,
+        Time: new Date().toLocaleDateString(),
+    });
+    render(customReviews);
+}
+
+function addingToCart(itemName, itemPrice) {
+    const item = { name: itemName, price: itemPrice };
+    productsInCart.push(item);
+}
+
+window.addEventListener("beforeunload", () => {
+    if (document.querySelector("body").id == "products")
+        sessionStorage.setItem("cart", JSON.stringify(productsInCart));
+});
+
+window.addEventListener("load", () => {
+    if (document.querySelector("body").id == "cart") {
+        cartList = JSON.parse(sessionStorage.getItem("cart"));
+        renderCart();
+    }
+    if (document.querySelector("body").id == "products") {
+        if (sessionStorage.getItem("cart"))
+            productsInCart = JSON.parse(sessionStorage.getItem("cart"));
+        else productsInCart = [];
+    }
+});
+
+
+function renderCart() {
+    if (document.querySelector("body").id !== "cart") return;
+
+    const container = document.getElementById("cartItems");
+    container.innerHTML = "";
+
+    if (!cartList || cartList.length === 0) {
+        container.innerHTML = "<p>Your cart is empty.</p>";
+        return;
+    }
+
+    cartList.forEach((item) => {
+        const card = document.createElement("div");
+        card.className = "card shadow-sm mb-3";
+        card.style.padding = "1rem";
+
+        card.innerHTML = `
+      <div class="card-body itemCards">
+        <h5 class="card-title">${item.name || "Unnamed Product"}</h5>
+        <p class="card-text">Price: $${item.price?.toFixed(2) || "0.00"}</p>
+      </div>
+    `;
+
+        container.appendChild(card);
+    });
+}
