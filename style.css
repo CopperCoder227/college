@@ -1,0 +1,123 @@
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background: url(imgs/backgound.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    text-shadow: 2px 2px 5px #ffffff;
+}
+
+.FNT {
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 2px 5px #000000;
+}
+
+.h3 {
+    color: rgb(0, 0, 0);
+    text-shadow: 2px 2px 5px #ffffff;
+}
+
+.og {
+    color: rgb(0, 0, 0);
+    text-shadow: 2px 2px 5px #ffffff;
+}
+
+.h2 {
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 2px 5px #000000;
+}
+
+.Box {
+    width: 500px;
+    height: 40px;
+}
+
+.mario {
+    height: 300px;
+    width: 300px;
+}
+
+.hand {
+    height: 300px;
+    width: 300px;
+}
+
+.chart {
+    height: 300px;
+    width: 300px;
+}
+
+#chart {
+    height: 250px;
+    width: 400px;
+}
+
+.selectedRock {
+    border-radius: 6px;
+    background-color: #f24646b2;
+    mix-blend-mode: add;
+}
+
+.btn-card1:hover {
+    border-radius: 6px;
+    background-color: #f24646b2;
+    mix-blend-mode: add;
+}
+
+.selectedPaper {
+    border-radius: 6px;
+    background-color: #f1c755a8;
+    mix-blend-mode: add;
+}
+
+.btn-card2:hover {
+    border-radius: 6px;
+    background-color: #f1c755a8;
+    mix-blend-mode: add;
+}
+
+.selectedScissors {
+    border-radius: 6px;
+    background-color: #4ba9eca9;
+    mix-blend-mode: add;
+}
+
+.btn-card3:hover {
+    border-radius: 6px;
+    background-color: #4ba9eca9;
+    mix-blend-mode: add;
+}
+
+
+.btn-fancy {
+    background: rgb(0, 0, 0);
+    background-image: -webkit-linear-gradient(top, #f24646, #f1c755, #4ba9ec);
+    background-image: -moz-linear-gradient(top, #f24646, #f1c755, #4ba9ec);
+    background-image: -ms-linear-gradient(top, #f24646, #f1c755, #4ba9ec);
+    background-image: -o-linear-gradient(top, #f24646, #f1c755, #4ba9ec);
+    background-image: linear-gradient(to bottom, #f24646, #f1c755, #4ba9ec);
+    -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    border-radius: 28px;
+    color: #ffffff;
+    font-size: 20px;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+}
+
+.btn-fancy:hover {
+    background: white;
+    background-image: -webkit-linear-gradient(top, #b43131, #b6953c, #3b8cc5);
+    background-image: -moz-linear-gradient(top, #b43131, #b6953c, #3b8cc5);
+    background-image: -ms-linear-gradient(top, #b43131, #b6953c, #3b8cc5);
+    background-image: -o-linear-gradient(top, #b43131, #b6953c, #3b8cc5);
+    background-image: linear-gradient(to bottom, #b43131, #b6953c, #3b8cc5);
+    text-decoration: none;
+}
