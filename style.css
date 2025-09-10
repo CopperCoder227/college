@@ -2,6 +2,7 @@ body {
     width: 100%;
     height: 100%;
     margin: 0;
+    justify-content: center;
     background-image: linear-gradient(to bottom, transparent, gray),
         url(imgs/tile_background.png);
     background-size: 700px;
@@ -291,6 +292,7 @@ a[aria-label="Home"] {
     border: solid black 10px;
     border-radius: 40px;
     padding: 0px;
+    width: 100%;
 }
 
 .home-list {
