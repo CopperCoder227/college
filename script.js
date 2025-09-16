@@ -50,17 +50,15 @@ links.forEach((link) => {
 // ---------------- GENERATE THE Reviews ---------------- //
 const customReviews = [
     {
-        Rating: "5 Stars",
         Name: "Gordon",
         Review:
-            "How do I exit this page. I was just trying to order a pizza for my grandkiddos.",
-        Time: "12/31/19",
+            "My grandkids really enjoyed this school! how do i give it 5 stars on this flabergasted web-a-ma-thingy?",
+        Time: "3/31/24",
     },
     {
-        Rating: "5 Stars",
-        Name: "En Lamas",
-        Review: "I like wood",
-        Time: "4/25/20",
+        Name: "Nick",
+        Review: "Is there online classes for if you get sick?",
+        Time: "9/15/24",
     },
 ];
 let render;
@@ -75,10 +73,9 @@ document.addEventListener("DOMContentLoaded", () => {
             col.className = "col-12";
 
             col.innerHTML = `
-        <div class="card h-100 shadow-sm">
+        <div class="card h-100 shadow-sm home-txt-b">
           <div class="card-body text-center">
             <h5 class="card-title mb-1">${review.Name}</h5>
-            <div class="badge bg-warning text-dark mb-2">${review.Rating}</div>
             <p class="card-text small">${review.Review}</p>
             <div class="text-muted small">${review.Time}</div>
           </div>
@@ -94,10 +91,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function submitReview() {
     let customerName = document.getElementById("textCommentName").value;
-    let starsAmount = document.getElementById("starSelection").value;
     let customerComment = document.getElementById("commentArea").value;
     customReviews.push({
-        Rating: starsAmount,
         Name: customerName,
         Review: customerComment,
         Time: new Date().toLocaleDateString(),

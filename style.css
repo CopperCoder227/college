@@ -321,6 +321,12 @@ a[aria-label="Home"] {
     text-align: center;
 }
 
+.home-txt-d {
+    background-color: #bee1fffa;
+    border: solid black 5px;
+    border-radius: 40px;
+}
+
 .home-list {
     margin-left: 25%;
     margin-right: 25%;
@@ -371,7 +377,7 @@ a[aria-label="Home"] {
 }
 
 #reviewList .card {
-    background-color: #fff;
+    background-color: #d6ecfffa;
     border-radius: 16px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
     padding: 1rem;
@@ -397,13 +403,15 @@ form#nameForm textarea {
 form#nameForm .btn {
     border-radius: 12px;
     font-weight: bold;
-    background-color: #007bff;
+    background-color: #003772;
+    color: white;
     border: none;
     transition: background-color 0.3s;
 }
 
 form#nameForm .btn:hover {
-    background-color: #0056b3;
+    background-color: #4babfffa;
+    color: black;
 }
 
 #reviewWrapper {

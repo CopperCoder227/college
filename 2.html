@@ -34,35 +34,28 @@
 
 
   <main class="container py-4">
-    <div class="row g-4">
+    <div class="row g-4" style="margin-top: 10%;">
       <!-- Left: Form -->
-      <div class="col-12 col-md-6">
-        <h1 class="titleing">Leave A Review:</h1>
+      <div class=" col-12 col-md-6 home-txt-d">
+        <br>
+        <h1 class="titleing">Ask a Question:</h1>
         <form id="nameForm" class="mb-4">
           <div class="mb-3">
             <input type="text" class="form-control" id="textCommentName" placeholder="Enter your Name" />
           </div>
-          <div class="mb-3">
-            <label for="starSelection" class="form-label">Rating</label>
-            <select id="starSelection" class="form-select">
-              <option value="⭐">One Star</option>
-              <option value="⭐⭐">Two Stars</option>
-              <option value="⭐⭐⭐">Three Stars</option>
-              <option value="⭐⭐⭐⭐">Four Stars</option>
-              <option value="⭐⭐⭐⭐⭐">Five Stars</option>
-            </select>
-          </div>
+
           <div class="mb-3">
             <textarea class="form-control" placeholder="Comment..." rows="5" id="commentArea"></textarea>
           </div>
-          <div class="btn btn-primary w-100" onclick="submitReview()">Submit</div>
+          <div class="btn w-100 button" onclick="submitReview()">Submit</div>
         </form>
         <div id="result"></div>
       </div>
 
       <!-- Right: Review List -->
+
       <div class="col-12 col-md-6">
-        <div id="reviewWrapper" class="overflow-auto border rounded p-3" style="max-height: 600px;">
+        <div id="reviewWrapper" class="overflow-auto border rounded p-3 " style="max-height: 600px;">
           <div id="reviewList" class="row g-3"></div>
         </div>
       </div>
@@ -101,3 +94,16 @@
 </body>
 
 </html>
+
+<!--
+          <div class="mb-3">
+            <label for="starSelection" class="form-label">Rating</label>
+            <select id="starSelection" class="form-select">
+              <option value="⭐">One Star</option>
+              <option value="⭐⭐">Two Stars</option>
+              <option value="⭐⭐⭐">Three Stars</option>
+              <option value="⭐⭐⭐⭐">Four Stars</option>
+              <option value="⭐⭐⭐⭐⭐">Five Stars</option>
+            </select>
+          </div>
+-->
