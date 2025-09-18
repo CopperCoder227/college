@@ -14,6 +14,7 @@ body {
     animation-duration: 5s;
     animation-iteration-count: infinite;
     animation-timing-function: linear;
+    background-attachment: fixed;
 }
 
 @keyframes moveBG {
@@ -325,6 +326,30 @@ a[aria-label="Home"] {
     background-color: #bee1fffa;
     border: solid black 5px;
     border-radius: 40px;
+}
+
+.home-txt-e {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #7cc2fffa;
+    border: solid black 5px;
+    border-radius: 40px;
+    padding: 0px;
+    width: 100%;
+    text-align: center;
+}
+
+.home-txt-f {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #bee1fffa;
+    border: solid black 5px;
+    border-radius: 40px;
+    padding: 0px;
+    width: 100%;
+    text-align: center;
 }
 
 .home-list {
