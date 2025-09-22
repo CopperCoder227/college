@@ -571,3 +571,27 @@ form#nameForm .btn:hover {
 .carousel - inner.carousel - item: nth - child(3) img {
     clip - path: inset(0 0 16px 0);
 }
+
+.spot-a {
+    height: 30%;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+}
+
+.spot-b {
+    height: 50%;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+}
+
+.spot-c {
+    height: 50%;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+}
