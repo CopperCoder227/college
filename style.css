@@ -517,3 +517,57 @@ form#nameForm .btn:hover {
     /* Optional: adds consistent gap between items */
     padding: 20px;
 }
+
+/* ✅ Center the carousel */
+.slide {
+    width: 90 %;
+    margin: 0 auto;
+}
+
+/* Optional: Fix carousel height if it's too tall on mobile */
+.carousel - inner {
+    max - height: 300px;
+    /* Adjust as needed */
+}
+
+.carousel - inner.carousel - item img {
+    height: auto;
+    max - height: 300px;
+}
+}
+
+/* ✅ NEW: Stack & center container children on mobile */
+.container {
+    flex - direction: column;
+    align - items: center;
+}
+
+
+
+
+
+.slide {
+    max - width: 800px;
+    margin - bottom: 40px;
+    /* keep your spacing below carousel */
+}
+
+.carousel - inner {
+    height: auto;
+    /* or whatever fixed height you want */
+    position: relative;
+}
+
+.carousel - item {
+    height: 100 %;
+}
+
+.carousel - inner.carousel - item img {
+    height: 100 %;
+    width: 100 %;
+    object - fit: cover;
+}
+
+.carousel - inner.carousel - item: nth - child(3) img {
+    clip - path: inset(0 0 16px 0);
+}
